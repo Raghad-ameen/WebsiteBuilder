@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;900&family=Inter:wght@400;900&family=Montserrat:wght@400;900&family=Playfair+Display:wght@400;900&family=Poppins:wght@400;900&family=Roboto+Mono:wght@400;700&family=Tajawal:wght@400;900&family=Oswald:wght@400;700&family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700;900&family=Lalezar&display=swap');
+:root {
+  --text: #334155;
+  --text-h: #020617;
+  /* --bg: #ffffff; */
+  --accent: #4f46e5;
+   --accent-bg: transparent;   /* أو لون خفيف */
+  --social-bg: transparent;
+  --border: #e2e8f0;
+  /* الخط العالمي الفخم */
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  
+  font: 17px/1.6 var(--sans);
+  direction: ltr; /* اتجاه إنجليزي */
+  /* background-color: var(--bg); */
+}
+
+/* حل مشكلة الهوامش السوداء الجذري */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* تباعد الحروف الإنجليزي الاحترافي */
+h1, h2, h3 {
+  letter-spacing: -0.04em; 
+  line-height: 1;
+}
+
+.group\/resizer {
+  position: relative;
+}
+::-webkit-resizer {
+  border: 10px solid transparent;
+}
+
+/* تحسين شكل التمرير */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* لمنع ظهور Scrollbar أفقي عند السحب */
+body {
+  overflow-x: hidden;
+}
+
+[contenteditable="true"] {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+}
+
+/* أجبر أي عنصر contenteditable على أن يكون شفافاً */
+[contenteditable="true"]:focus {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* حل مشكلة الخلفية البيضاء التي تظهر عند الضغط (Focus) */
+[contenteditable="true"]::selection {
+  background: rgba(79, 70, 229, 0.3);
+}
+
+/* تأكد أن حاوية العناصر الذرية لا تملك خلفية */
+.pointer-events-none {
+    background-color: transparent !important;
+}
+
+
+.free-element,
+.free-element * {
+   background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+

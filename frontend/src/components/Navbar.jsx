@@ -1,0 +1,55 @@
+import { Link } from 'react-router-dom';
+import MyLogo from '../assets/SP.png'; 
+import { useNavigate } from 'react-router-dom';
+
+export const Navbar = () => {
+  const navigate = useNavigate();
+  return (
+    // 1. قمنا بتغيير sticky إلى relative (أو حذفها تماماً)
+    // 2. تأكد من إزالة z-50 لأن الـ SortableContext يحتاج لإدارة الـ z-index بنفسه
+    <nav className="w-full flex justify-between items-center py-6 px-6 md:px-16 bg-[#0a0026] font-sans relative" dir="ltr">
+      
+      <div className="flex items-center gap-3">
+        {/* حاوية اللوجو */}
+        <div className="w-11 h-11 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 shadow-inner"> 
+          <img 
+            src={MyLogo} 
+            alt="Company Logo" 
+            className="w-8 h-8 object-contain"
+          />
+        </div>
+
+        <span className="text-2xl font-black text-white tracking-tighter uppercase">
+          StructPeak
+        </span>
+      </div>
+
+      <div className="flex items-center gap-6"> 
+        {/* في المحرر، يفضل استخدام div بدلاً من Link مؤقتاً إذا كان يسبب مشاكل في الضغط */}
+        <div className="hidden md:block text-white/70 hover:text-white font-medium transition text-sm cursor-pointer">
+          Home
+        </div>
+        <div className="hidden md:block text-white/70 hover:text-white font-medium transition text-sm cursor-pointer">
+          About us
+        </div>
+        <div className="hidden md:block text-white/70 hover:text-white font-medium transition text-sm cursor-pointer">
+          Templates
+        </div>
+
+       <div 
+        onClick={() => navigate('/login')} // توجيه المستخدم لصفحة تسجيل الدخول
+        className="text-white/80 hover:text-white font-bold text-sm px-2 cursor-pointer"
+      >
+        Log in
+      </div>
+
+        
+  <div 
+  onClick={() => navigate('/register')}
+  className="bg-white text-[#0a0026] px-6 py-2.5 rounded-2xl font-black text-sm hover:bg-gray-100 transition-all shadow-xl active:scale-95 cursor-pointer">
+    Sign up
+  </div>
+      </div>
+    </nav>
+  );
+};
